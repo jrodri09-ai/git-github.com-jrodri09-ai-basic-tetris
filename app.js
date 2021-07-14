@@ -21,9 +21,9 @@ const zTetromino = [
 ]
 
 const tTetromino = [
-  [1,width,width+1,width+2]
-  [1,width+1,width+2,width*2+1]
-  [width,width+1,width+2,width*2+1]
+  [1,width,width+1,width+2],
+  [1,width+1,width+2,width*2+1],
+  [width,width+1,width+2,width*2+1],
   [1,width,width+1,width*2+1]
 ]
 
@@ -31,14 +31,52 @@ const oTetromino = [
   [0,1,width,width+1],
   [0,1,width,width+1],
   [0,1,width,width+1],
-  [0,1,width,width+1],
+  [0,1,width,width+1]
 ]
 
-const iTetermino = [
-  [1,width+1,width*2+1,width*3+1]
-  [width,width+1,width+2,width+3]
-  [1,width+1,width*2+1,width*3+1]
+const iTetromino = [
+  [1,width+1,width*2+1,width*3+1],
+  [width,width+1,width+2,width+3],
+  [1,width+1,width*2+1,width*3+1],
   [width,width+1,width+2,width+3]
 ]
+
+const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+
+let currentPositon = 4
+let currentRotation = 0
+
+//randomly select a teromino and its first rotation
+let random = Math.floor(Math.random()*theTetrominoes.length)
+console.log(random)
+let current = theTetrominoes[random][0]
+
+console.log (theTetrominoes)
+
+//draw the Tetrominoe
+function draw() {
+  current.forEach(index => {
+    squares[currentPositon+index].classList.add('teromino')
+  })
+}
+
+//undraw the Tetrominoe
+function undraw() {
+  current.forEach(index => {
+    squares[currentPositon + index].classList.remove('tetromino')
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 })
